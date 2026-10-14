@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kisan Mitra</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+             Kisan Mitra 
+        </div>
+
+        <nav>
+
+            <a href="#chatbot">Chatbot</a>
+
+            <a href="#disease">Disease Detection</a>
+
+            <a href="#weather">Weather</a>
+
+            <a href="#price">Price Prediction</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Kisan Mitra </h1>
+
+            <p>
+                Empowering farmers with Artificial Intelligence,
+                smart farming guidance, weather insights,
+                and crop disease detection.
+            </p>
+
+            <a href="#chatbot" class="hero-btn">
+                Start Farming Assistant
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             AI CHATBOT
+        ================================================== -->
+
+        <section id="chatbot" class="section-card">
+
+            <div class="section-title">
+
+                <h2> AI Farming Assistant</h2>
+
+                <p>
+                    Ask questions about crops, soil, fertilizers,
+                    irrigation, and farming.
+                </p>
+
+            </div>
+
+
+            <!-- LANGUAGE -->
+
+            <label for="language">
+                Select Language
+            </label>
+
+            <select id="language">
+
+                <option value="en">
+                    English
+                </option>
+
+                <option value="hi">
+                    Hindi
+                </option>
+
+            </select>
+
+
+            <!-- CHAT MESSAGES -->
+
+            <div id="chatMessages" class="chat-messages">
+
+                <div class="bot-message">
+
+                     Hello! I am Kisan Mitra.
+
+                    Ask me anything about farming.
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAT INPUT -->
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Ask your farming question..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    id="sendChatBtn"
+                >
+
+                    Send
+
+                </button>
+
+            </div>
+
+
+            <div id="chatLoading" class="loading" hidden>
+
+                AI is thinking...
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CROP DISEASE DETECTION
+        ================================================== -->
+
+        <section id="disease" class="section-card">
+
+            <div class="section-title">
+
+                <h2>🌿 AI Crop Disease Detection</h2>
+
+                <p>
+                    Upload a crop or leaf image to get
+                    AI-powered observations and guidance.
+                </p>
+
+            </div>
+
+
+            <!-- IMAGE UPLOAD -->
+
+            <label for="cropImage">
+
+                Upload Crop Image
+
+            </label>
+
+            <input
+                type="file"
+                id="cropImage"
+                accept="image/jpeg,image/png,image/webp"
+            >
+
+
+            <!-- IMAGE PREVIEW -->
+
+            <div class="image-preview-container">
+
+                <img
+                    id="imagePreview"
+                    alt="Selected crop image preview"
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- DETECTION BUTTON -->
+
+            <button
+                type="button"
+                id="detectDiseaseBtn"
+                class="primary-btn"
+            >
+
+                 Detect Crop Disease
+
+            </button>
+
+
+            <!-- LOADING -->
+
+            <div id="diseaseLoading" class="loading" hidden>
+
+                 Analyzing image... Please wait.
+
+            </div>
+
+
+            <!-- RESULT -->
+
+            <div
+                id="diseaseResult"
+                class="result-box"
+                aria-live="polite"
+            ></div>
+
+
+            <p class="disclaimer">
+
+                ⚠️ AI results are preliminary observations.
+                Consult a qualified agriculture expert
+                before using pesticides or treatments.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LIVE WEATHER
+        ================================================== -->
+
+        <section id="weather" class="section-card">
+
+            <div class="section-title">
+
+                <h2> Live Weather</h2>
+
+                <p>
+                    Check current weather conditions
+                    for your city.
+                </p>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Enter city e.g. Ghaziabad"
+                >
+
+                <button
+                    type="button"
+                    id="getWeatherBtn"
+                    class="primary-btn"
+                >
+
+                    Get Weather
+
+                </button>
+
+            </div>
+
+
+            <div id="weatherLoading" class="loading" hidden>
+
+                Loading weather...
+
+            </div>
+
+
+            <div
+                id="weatherResult"
+                class="result-box"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CROP PRICE PREDICTION
+        ================================================== -->
+
+        <section id="price" class="section-card">
+
+            <div class="section-title">
+
+                <h2> Crop Price Prediction</h2>
+
+                <p>
+                    Enter crop details to request
+                    a model-based price prediction.
+                </p>
+
+            </div>
+
+
+            <label for="cropSelect">
+                Select Crop
+            </label>
+
+            <select id="cropSelect">
+
+                <option value="">
+                    Select Crop
+                </option>
+
+                <option value="Wheat">
+                    Wheat
+                </option>
+
+                <option value="Rice">
+                    Rice
+                </option>
+
+                <option value="Potato">
+                    Potato
+                </option>
+
+                <option value="Tomato">
+                    Tomato
+                </option>
+
+                <option value="Onion">
+                    Onion
+                </option>
+
+                <option value="Maize">
+                    Maize
+                </option>
+
+            </select>
+
+
+            <label for="stateSelect">
+                Select State
+            </label>
+
+            <select id="stateSelect">
+
+                <option value="">
+                    Select State
+                </option>
+
+                <option value="Uttar Pradesh">
+                    Uttar Pradesh
+                </option>
+
+                <option value="Punjab">
+                    Punjab
+                </option>
+
+                <option value="Haryana">
+                    Haryana
+                </option>
+
+                <option value="Maharashtra">
+                    Maharashtra
+                </option>
+
+                <option value="Bihar">
+                    Bihar
+                </option>
+
+                <option value="Rajasthan">
+                    Rajasthan
+                </option>
+
+            </select>
+
+
+            <label for="seasonSelect">
+                Select Season
+            </label>
+
+            <select id="seasonSelect">
+
+                <option value="">
+                    Select Season
+                </option>
+
+                <option value="Kharif">
+                    Kharif
+                </option>
+
+                <option value="Rabi">
+                    Rabi
+                </option>
+
+                <option value="Zaid">
+                    Zaid
+                </option>
+
+            </select>
+
+
+            <label for="monthSelect">
+                Select Month
+            </label>
+
+            <select id="monthSelect">
+
+                <option value="">
+                    Select Month
+                </option>
+
+                <option value="1">January</option>
+
+                <option value="2">February</option>
+
+                <option value="3">March</option>
+
+                <option value="4">April</option>
+
+                <option value="5">May</option>
+
+                <option value="6">June</option>
+
+                <option value="7">July</option>
+
+                <option value="8">August</option>
+
+                <option value="9">September</option>
+
+                <option value="10">October</option>
+
+                <option value="11">November</option>
+
+                <option value="12">December</option>
+
+            </select>
+
+
+            <button
+                type="button"
+                id="predictPriceBtn"
+                class="primary-btn"
+            >
+
+                 Predict Price
+
+            </button>
+
+
+            <div id="priceLoading" class="loading" hidden>
+
+                Predicting price...
+
+            </div>
+
+
+            <div
+                id="priceResult"
+                class="result-box"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Kisan Mitra 
+        </p>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

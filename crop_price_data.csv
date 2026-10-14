@@ -1,0 +1,31 @@
+crop,state,season,month,avg_price
+Wheat,Uttar Pradesh,Rabi,1,2200
+Wheat,Uttar Pradesh,Rabi,2,2250
+Wheat,Uttar Pradesh,Rabi,3,2350
+Wheat,Uttar Pradesh,Rabi,4,2400
+Wheat,Uttar Pradesh,Rabi,5,2450
+Wheat,Punjab,Rabi,1,2300
+Wheat,Punjab,Rabi,2,2350
+Wheat,Punjab,Rabi,3,2450
+Wheat,Punjab,Rabi,4,2500
+Wheat,Punjab,Rabi,5,2550
+Rice,Uttar Pradesh,Kharif,6,2100
+Rice,Uttar Pradesh,Kharif,7,2150
+Rice,Uttar Pradesh,Kharif,8,2250
+Rice,Uttar Pradesh,Kharif,9,2300
+Rice,Uttar Pradesh,Kharif,10,2350
+Rice,Punjab,Kharif,6,2200
+Rice,Punjab,Kharif,7,2250
+Rice,Punjab,Kharif,8,2350
+Rice,Punjab,Kharif,9,2400
+Rice,Punjab,Kharif,10,2450
+Potato,Uttar Pradesh,Rabi,1,1400
+Potato,Uttar Pradesh,Rabi,2,1500
+Potato,Uttar Pradesh,Rabi,3,1600
+Potato,Uttar Pradesh,Rabi,4,1550
+Potato,Uttar Pradesh,Rabi,5,1450
+Tomato,Uttar Pradesh,Rabi,1,1800
+Tomato,Uttar Pradesh,Rabi,2,1900
+Tomato,Uttar Pradesh,Rabi,3,2100
+Tomato,Uttar Pradesh,Rabi,4,2000
+Tomato,Uttar Pradesh,Rabi,5,1850
